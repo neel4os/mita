@@ -2,8 +2,8 @@
 import { auth } from "./auth"
 export default auth((req) => {
     console.log("Middleware triggered for request:", req.auth);
-    const publicRoutes = ["/"];
-    const apiRoutes = ["/api/auth"];
+    const publicRoutes = ["/", "/flows"];
+    const apiRoutes = ["/api/auth", "/api/copilotkit"];
     if (apiRoutes.some(route => req.nextUrl.pathname.startsWith(route))) {
         console.log("Skipping authentication for API route:", req.nextUrl.pathname);
         return;

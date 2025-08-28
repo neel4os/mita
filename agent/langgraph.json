@@ -1,0 +1,7 @@
+{
+    "dependencies" : ["."],
+    "graphs":{
+        "mitaagent": "main:graph"
+    },
+    "env": "./.env"
+}

@@ -2,6 +2,7 @@ import {
   CopilotRuntime,
   ExperimentalEmptyAdapter,
   LangGraphHttpAgent,
+  LangGraphAgent,
   copilotRuntimeNextJSAppRouterEndpoint,
 } from "@copilotkit/runtime";
 import { NextRequest } from "next/server";
@@ -11,8 +12,11 @@ const serviceAdapter = new ExperimentalEmptyAdapter();
  
 const runtime = new CopilotRuntime({
   agents: {
-    "mita": new LangGraphHttpAgent({url: "http://localhost:10000/mita-agent"}),
-  },
+    "mitaagent": new LangGraphAgent({
+      deploymentUrl: "http://localhost:2024",
+      graphId: "mitaagent",
+  }),
+},
 });
  
 export const POST = async (req: NextRequest) => {
@@ -21,6 +25,5 @@ export const POST = async (req: NextRequest) => {
     serviceAdapter,
     endpoint: "/api/copilotkit",
   });
- 
   return handleRequest(req);
 };

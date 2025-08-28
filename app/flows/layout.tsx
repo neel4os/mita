@@ -9,8 +9,7 @@ export default function FlowLayout({
 }) {
 const copilotkitPublicKey = process.env.COPILOTKKIT_PUBLIC_KEY
   return (
-
-    <CopilotKit publicLicenseKey={copilotkitPublicKey} runtimeUrl="/api/copilotkit" agent="mita">
+    <CopilotKit publicLicenseKey={copilotkitPublicKey} runtimeUrl="/api/copilotkit" agent="mitaagent">
       {children}
     </CopilotKit>
   );
